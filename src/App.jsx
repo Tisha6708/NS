@@ -13,7 +13,9 @@ function App() {
     <Router>
       <div className="relative min-h-screen overflow-hidden">
         <div className="app">
-        <NeuralBackground />
+           <div className="fixed inset-0 -z-10">
+            <NeuralBackground />
+           </div>
         <Header />
         <main className="relative z-10">
           <Routes>
