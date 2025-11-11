@@ -33,7 +33,7 @@ export default function Footer() {
             <li><Link to="/about" className="hover:text-yellow-400">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-yellow-400">Contact</Link></li>
             <li><Link to="/careers" className="hover:text-yellow-400">Careers</Link></li>
-            <li><a href="#" className="hover:text-yellow-400">Blog</a></li>
+            {/* <li><a href="#" className="hover:text-yellow-400">Blog</a></li> */}
           </ul>
         </div>
 
@@ -41,9 +41,11 @@ export default function Footer() {
         <div>
           <h4 className="text-yellow-400 font-semibold mb-3">Contact</h4>
           <ul className="space-y-2 text-sm">
-            <li>📧 hello@neuricornsyndicate.com</li>
-            <li>📞 +91 (800) 123-4567</li>
-            <li>📍 Bangalore, India</li>
+            <li>📧 business@neuricornsyndicate.com</li>
+            <li>📧 ceo.neuricornsyndicate@gmail.com</li>
+            <li>📧 hr.neuricornsyndicate@gmail.com</li>
+            <li>📞 +91 7625011737</li>
+            {/* <li>📍 Bangalore, India</li> */}
           </ul>
         </div>
       </div>
