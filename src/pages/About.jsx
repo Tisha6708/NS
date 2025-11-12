@@ -3,34 +3,21 @@ import { motion } from "framer-motion";
 export default function About() {
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { delay, duration: 0.8 },
-    viewport: { once: true },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay, duration: 0.7, ease: "easeOut" },
   });
 
   const stats = [
-    {
-      icon: "👩‍🎓",
-      title: "50K+ Students",
-      desc: "Empowered globally",
-    },
-    {
-      icon: "🏫",
-      title: "200+ Institutions",
-      desc: "Trusted network",
-    },
-    {
-      icon: "⚙️",
-      title: "99.9% Uptime",
-      desc: "Reliable neural cloud systems",
-    },
+    { icon: "👩‍🎓", title: "50K+ Students", desc: "Empowered globally" },
+    { icon: "🏫", title: "200+ Institutions", desc: "Trusted network" },
+    { icon: "⚙️", title: "99.9% Uptime", desc: "Reliable neural cloud systems" },
   ];
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 md:px-10 flex flex-col items-center text-white overflow-hidden">
+    <section className="min-h-screen pt-32 pb-20 px-6 md:px-10 flex flex-col items-center text-white overflow-hidden opacity-0 animate-[fadeIn_0.4s_ease-out_forwards]">
       {/* Header */}
       <motion.h2
-        {...fadeUp()}
+        {...fadeUp(0)}
         className="text-4xl md:text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)]"
       >
         About Us
@@ -71,7 +58,7 @@ export default function About() {
         {stats.map((item, i) => (
           <motion.div
             key={i}
-            {...fadeUp(i * 0.2)}
+            {...fadeUp(0.6 + i * 0.2)}
             whileHover={{ scale: 1.05 }}
             className="relative p-8 bg-[#0d0d0d]/70 border border-[#2a2a2a] rounded-2xl backdrop-blur-md
               hover:border-yellow-400 shadow-md shadow-black/40 transition-all duration-300 text-center overflow-hidden"

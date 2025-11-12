@@ -36,8 +36,9 @@ export default function Products() {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     transition: { delay, duration: 0.7 },
-    viewport: { once: true },
+    viewport: { once: true, amount: 0.2 }, // triggers earlier
   });
+
 
   return (
     <section className="min-h-screen pt-32 pb-20 px-6 md:px-10 text-white overflow-hidden">
@@ -65,7 +66,7 @@ export default function Products() {
               scale: 1.05,
               boxShadow: "0 0 30px rgba(255,215,0,0.15)",
             }}
-            className="group relative bg-[#0d0d0d]/70 border border-[#2a2a2a] rounded-2xl p-8 
+            className="group relative bg-[#0d0d0d]/70 border border-[#2a2a2a] rounded-2xl p-8
               backdrop-blur-md hover:border-yellow-400 transition-all duration-300 overflow-hidden"
           >
             {/* Glowing background effect on hover */}

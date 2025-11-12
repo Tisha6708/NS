@@ -2,20 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function Home() {
+  // Animate on mount instead of whileInView
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { delay, duration: 0.8 },
-    viewport: { once: true },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay, duration: 0.7, ease: "easeOut" },
   });
 
   return (
-    <main className="relative min-h-screen flex flex-col justify-center text-white overflow-hidden">
+    <main className="relative min-h-screen flex flex-col justify-center text-white overflow-hidden opacity-0 animate-[fadeIn_0.4s_ease-out_forwards]">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 sm:px-12 md:px-24">
         <div className="relative z-10 max-w-4xl mx-auto">
           <motion.h1
-            {...fadeUp()}
+            {...fadeUp(0)}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
           >
             Advanced{" "}
@@ -38,7 +38,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            {...fadeUp(0.5)}
+            {...fadeUp(0.6)}
             className="flex flex-wrap justify-center gap-6 mt-10"
           >
             <motion.button
@@ -60,12 +60,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Vision & Mission Cards Section */}
+      {/* Vision & Mission Section */}
       <section className="relative py-32 px-6 sm:px-12 md:px-24">
         <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Vision Card */}
           <motion.div
-            {...fadeUp()}
+            {...fadeUp(0.2)}
             whileHover={{ scale: 1.03 }}
             className="p-10 bg-[#141414]/60 border border-[#2a2a2a] rounded-2xl backdrop-blur-sm hover:border-yellow-400 shadow-lg shadow-black/40 transition-all"
           >
@@ -73,18 +73,21 @@ export default function Home() {
               Our Vision
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              At <span className="text-yellow-400 font-semibold">Neuricorn Syndicate</span>,
-              we envision a decentralized educational ecosystem driven by neural
-              intelligence — where automation, transparency, and creativity
-              coexist seamlessly. Our goal is to build intelligent systems that
-              adapt and evolve with every learner — fostering truly personalized
-              education across the world.
+              At{" "}
+              <span className="text-yellow-400 font-semibold">
+                Neuricorn Syndicate
+              </span>
+              , we envision a decentralized educational ecosystem driven by
+              neural intelligence — where automation, transparency, and
+              creativity coexist seamlessly. Our goal is to build intelligent
+              systems that adapt and evolve with every learner — fostering truly
+              personalized education across the world.
             </p>
           </motion.div>
 
           {/* Mission Card */}
           <motion.div
-            {...fadeUp(0.2)}
+            {...fadeUp(0.4)}
             whileHover={{ scale: 1.03 }}
             className="p-10 bg-[#141414]/60 border border-[#2a2a2a] rounded-2xl backdrop-blur-sm hover:border-yellow-400 shadow-lg shadow-black/40 transition-all"
           >
@@ -107,23 +110,24 @@ export default function Home() {
       <section className="relative py-32 text-center px-6 sm:px-12 md:px-24">
         <div className="relative z-10 max-w-6xl mx-auto">
           <motion.h2
-            {...fadeUp()}
+            {...fadeUp(0)}
             className="text-3xl md:text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_10px_rgba(255,215,0,0.3)]"
           >
-            Why Choose <span className="text-orange-400">Neuricorn Syndicate</span>?
+            Why Choose{" "}
+            <span className="text-orange-400">Neuricorn Syndicate</span>?
           </motion.h2>
 
           <motion.p
-            {...fadeUp(0.3)}
+            {...fadeUp(0.2)}
             className="text-gray-300 text-lg max-w-3xl mx-auto mb-16 leading-relaxed"
           >
-            Because we merge innovation with purpose — blending neural intelligence,
-            blockchain transparency, and human-centered design to transform how the
-            world learns, teaches, and evolves.
+            Because we merge innovation with purpose — blending neural
+            intelligence, blockchain transparency, and human-centered design to
+            transform how the world learns, teaches, and evolves.
           </motion.p>
 
           <motion.div
-            {...fadeUp(0.6)}
+            {...fadeUp(0.4)}
             className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 text-left"
           >
             {[
@@ -154,13 +158,16 @@ export default function Home() {
             ].map((item, index) => (
               <motion.div
                 key={index}
+                {...fadeUp(0.5 + index * 0.1)} // Staggered entrance
                 whileHover={{ scale: 1.05 }}
                 className="p-8 bg-[#141414]/50 border border-[#2a2a2a] rounded-2xl backdrop-blur-sm hover:border-yellow-400 transition-all"
               >
                 <h3 className="text-xl font-semibold text-yellow-400 mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </motion.div>
