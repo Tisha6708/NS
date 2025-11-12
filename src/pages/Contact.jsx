@@ -111,7 +111,7 @@ export default function Contact() {
         <p className="mb-6 text-lg">
           Prefer direct communication? Reach us at{" "}
           <span className="text-yellow-400 font-semibold cursor-pointer hover:underline">
-            contact@neuricorn.ai
+            business@neuricornsyndicate.com
           </span>
         </p>
         <div className="flex justify-center gap-6 text-2xl">

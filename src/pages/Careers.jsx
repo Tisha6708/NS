@@ -46,42 +46,77 @@ export default function Careers() {
 
       <motion.p
         {...fadeUp(0.2)}
-        className="text-gray-300 text-center max-w-3xl mx-auto mb-16 text-lg leading-relaxed"
+        className="text-gray-300 text-center max-w-3xl mx-auto mb-12 text-base sm:text-lg leading-relaxed"
       >
-        At <span className="text-yellow-400 font-semibold">Neuricorn Syndicate</span>, we’re not just hiring — we’re
-        building the next generation of innovators redefining education through
-        intelligence, creativity, and technology. If you’re driven by purpose,
-        this is where you belong.
+        At <span className="text-yellow-400 font-semibold">Neuricorn Syndicate</span>, we’re not
+        just hiring — we’re building the next generation of innovators redefining education through
+        intelligence, creativity, and technology.
       </motion.p>
 
       {/* Form */}
       <motion.form
         {...fadeUp(0.3)}
         onSubmit={handleSubmit}
-        className="max-w-5xl mx-auto bg-[#141414]/80 border border-[#2a2a2a] rounded-2xl p-10
-        backdrop-blur-md shadow-lg shadow-black/40 grid md:grid-cols-2 gap-8
-        hover:border-yellow-400/50 transition-all duration-300"
+        className="max-w-5xl mx-auto bg-[#141414]/70 border border-[#2a2a2a] rounded-2xl p-10
+        backdrop-blur-md shadow-lg shadow-black/40 grid md:grid-cols-2 gap-8 hover:border-yellow-400/50 transition-all duration-300"
       >
-        {[
-          { label: "Full Name", name: "name", type: "text", placeholder: "John Doe" },
-          { label: "Email", name: "email", type: "email", placeholder: "john@example.com" },
-          { label: "Phone", name: "phone", type: "tel", placeholder: "+91 9876543210" },
-          { label: "Date of Birth", name: "dob", type: "date" },
-        ].map((input) => (
-          <div key={input.name}>
-            <label className="block text-sm text-yellow-400 mb-2">{input.label}</label>
-            <input
-              {...input}
-              onChange={handleChange}
-              className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
-                focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
-              required
-            />
-          </div>
-        ))}
+        {/* Name */}
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">Full Name</label>
+          <input
+            name="name"
+            type="text"
+            onChange={handleChange}
+            placeholder="John Doe"
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+            required
+          />
+        </div>
+
+        {/* Email */}
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">Email</label>
+          <input
+            name="email"
+            type="email"
+            onChange={handleChange}
+            placeholder="john@example.com"
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+            required
+          />
+        </div>
+
+        {/* Phone */}
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">Phone</label>
+          <input
+            name="phone"
+            type="tel"
+            onChange={handleChange}
+            placeholder="+91 9876543210"
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+            required
+          />
+        </div>
+
+        {/* DOB */}
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">Date of Birth</label>
+          <input
+            name="dob"
+            type="date"
+            onChange={handleChange}
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+            required
+          />
+        </div>
 
         {/* Bio */}
-        <div className="md:col-span-2">
+        <div className="lg:col-span-2">
           <label className="block text-sm text-yellow-400 mb-2">Short Bio</label>
           <textarea
             name="bio"
@@ -118,23 +153,41 @@ export default function Careers() {
         ))}
 
         {/* Socials */}
-        {[
-          { name: "github", label: "GitHub", placeholder: "https://github.com/username" },
-          { name: "linkedin", label: "LinkedIn", placeholder: "https://linkedin.com/in/username" },
-          { name: "portfolio", label: "Portfolio", placeholder: "https://yourportfolio.com" },
-        ].map((s, i) => (
-          <div key={s.name} className={i === 2 ? "md:col-span-2" : ""}>
-            <label className="block text-sm text-yellow-400 mb-2">{s.label}</label>
-            <input
-              type="url"
-              name={s.name}
-              placeholder={s.placeholder}
-              onChange={handleChange}
-              className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
-                focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
-            />
-          </div>
-        ))}
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">GitHub</label>
+          <input
+            name="github"
+            type="url"
+            placeholder="https://github.com/username"
+            onChange={handleChange}
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm text-yellow-400 mb-2">LinkedIn</label>
+          <input
+            name="linkedin"
+            type="url"
+            placeholder="https://linkedin.com/in/username"
+            onChange={handleChange}
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-sm text-yellow-400 mb-2">Portfolio</label>
+          <input
+            name="portfolio"
+            type="url"
+            placeholder="https://yourportfolio.com"
+            onChange={handleChange}
+            className="w-full p-3 bg-[#0d0d0d] border border-yellow-500/30 rounded-md
+              focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+          />
+        </div>
 
         {/* Submit */}
         <motion.button
@@ -154,12 +207,12 @@ export default function Careers() {
         <p className="text-lg mb-4">
           Have questions before applying? Reach us at{" "}
           <span className="text-yellow-400 font-semibold cursor-pointer hover:underline">
-            careers@neuricorn.ai
+            business@neuricornsyndicate.com
           </span>
         </p>
-        <p className="text-sm text-gray-500">
-          We’re an equal-opportunity company — your skills, ideas, and mindset
-          matter more than anything else.
+        <p className="text-xs sm:text-sm text-gray-500">
+          We’re an equal-opportunity company — your skills, ideas, and mindset matter more than
+          anything else.
         </p>
       </motion.div>
     </section>
